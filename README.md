@@ -19,6 +19,8 @@ adaptive HLS 방식은 네트워크 환경이 불안정한 경우에도 클라�
 ### 서버 구현
 내가 좋아하는 노래 두개를 aac 파일로 다운받았다. (aac 확장자는 mp3 다음 버전 오디오 코덱으로 mp3보다 높은 음질의 스펙을 갖췄다) FFmpeg 라는 미디어 크로스 플랫폼을 이용해 aac파일을 m3u8과 ts 파일로 생성했다. HLS 프로토콜 컨셉을 테스트해보고자 하는게 이번 개발의 의 핵심이므로 별도의 서버를 구축하지않고 AWS의 CloudFront를 이용했다. CloudFront에 생성한 m3u8과 ts 파일들을 업로드하고 외부로부터 접속 가능함을 확인했다.
 
+<img src="https://user-images.githubusercontent.com/62507373/108620742-97b0b980-7471-11eb-8c69-f8ef20a879be.png" width="1000" height="200">
+
 ### 클라이언트 구현
 Android의 ExoPlayer에서 지원하는 HlsMediaSource를 이용하여 hls 서비스를 이용하도록 구현해보았다. 아마 내부적으로 m3u8 파일부터 가져와서 메타 정보를 참조하여 시간마다 정의된 ts파일들을 순차적으로 가져와서 재생하는 방식일것 같다.
 ```

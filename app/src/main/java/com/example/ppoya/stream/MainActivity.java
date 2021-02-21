@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     selSong = temp.getSong();
                     Uri uri = null;
 
-                    uri = Uri.parse("http://d13g3sysalk9c6.cloudfront.net/Jerry/" + selSong + "/"+selSong+".m3u8");
+                    uri = Uri.parse("http://xxxxxx.cloudfront.net/Jerry/" + selSong + "/"+selSong+".m3u8");
                     Log.d("URI", "" + uri);
                     mediaSource = new HlsMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
                     player.prepare(mediaSource);
